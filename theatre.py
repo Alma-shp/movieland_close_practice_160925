@@ -27,6 +27,11 @@ def tickets_validation(matrix: list, tickets_list: list, customer: str):
     :return: boolean
     """
 
+    # checking if seat exist in the theatre:
+    for ticket in tickets_list:
+        if not is_seat_exist(matrix, ticket):
+            return False
+
     # copy matrix and implementation:
     matrix_copy = copy_matrix(matrix)
     ticket_placing(matrix_copy, tickets_list, customer)
@@ -36,6 +41,7 @@ def tickets_validation(matrix: list, tickets_list: list, customer: str):
     this_row = tickets_list[0][0]
 
     for ticket in tickets_list:
+
         # saving the num of rows:
         last_row = this_row
         this_row = ticket[0]
@@ -54,6 +60,7 @@ def tickets_validation(matrix: list, tickets_list: list, customer: str):
 
     first = True
     for row in matrix_copy:
+
         for col in row:
             if first:
                 col_index = 1
@@ -65,6 +72,7 @@ def tickets_validation(matrix: list, tickets_list: list, customer: str):
 
             if this_col == customer:
                 ticket_count += 1
+
             # checking if there are spaces between the tickets:
             if last_col == customer and this_col == "_" and ticket_count != num_of_tickets:
                 print("Not all tickets are linked. \nTry again.")
@@ -134,3 +142,29 @@ def copy_matrix(matrix: list):
         row_index += 1
 
     return matrix_copy
+
+
+def is_seat_exist(matrix: list, seat: tuple):
+    """
+    (function 6)
+    this function checks id a seat number exists in a theatre.
+    :param matrix: list
+    :param seat: tuple
+    :return: boolean
+    """
+
+    # if row number doesn't exist:
+    rows_len = len(matrix)
+    if seat[0] > rows_len or seat[0] < 0:
+        print("Invalid row number.\nTry again.")
+        return False
+
+    # if seat number doesn't exist:
+    seat_len = len(matrix[seat[0]])
+    if seat[1] > seat_len or seat[1] < 0:
+        print("Invalid seat number.\nTry again.")
+        return False
+
+    return True
+
+
