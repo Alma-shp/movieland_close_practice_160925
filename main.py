@@ -32,6 +32,7 @@ def main():
     print("Ready for invitations!")
 
     # while loop for each customer:
+
     flag = False
     num_of_tickets = int(input("How many tickets would you like? enter 0 to exit: "))
     name = input("Enter the invitor name: ")
