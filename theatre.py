@@ -149,13 +149,13 @@ def is_seat_exist(matrix: list, seat: tuple):
 
     # if row number doesn't exist:
     rows_len = len(matrix)
-    if seat[0] > rows_len or seat[0] < 0:
+    if seat[0] >= rows_len or seat[0] < 0:
         print("Invalid row number.\nTry again.")
         return False
 
     # if seat number doesn't exist:
     seat_len = len(matrix[seat[0]])
-    if seat[1] > seat_len or seat[1] < 0:
+    if seat[1] >= seat_len or seat[1] < 0:
         print("Invalid seat number.\nTry again.")
         return False
 
