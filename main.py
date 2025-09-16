@@ -88,11 +88,12 @@ def main():
         theatre.ticket_placing(matrix_theatre, tickets_list, name)
 
         # printing the matrix for the user:
+        print("Tickets bought successfully! here is the new theatre status: ")
         theatre.print_matrix(matrix_theatre)
 
         # next customer :
 
-        num_of_tickets = input("How many tickets would you like? enter 0 to exit: ")
+        num_of_tickets = input("Next customer. How many tickets would you like? enter 0 to exit: ")
         # input validation:
         while not num_of_tickets.isdigit():
             print("Number of tickets should be a number.\nTry again.")
