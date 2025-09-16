@@ -32,10 +32,20 @@ def main():
     print("Ready for invitations!")
 
     # while loop for each customer:
-
     flag = False
-    num_of_tickets = int(input("How many tickets would you like? enter 0 to exit: "))
+
+    num_of_tickets = input("How many tickets would you like? enter 0 to exit: ")
+    # input validation:
+    while not num_of_tickets.isdigit():
+        print("Number of tickets should be a number.\nTry again.")
+        num_of_tickets = input("How many tickets would you like? enter 0 to exit: ")
+    num_of_tickets = int(num_of_tickets)
+
+    if num_of_tickets == 0:
+        quit()
+
     name = input("Enter the invitor name: ")
+
     while num_of_tickets != 0:
 
         # printing movie options to the user:
@@ -80,7 +90,17 @@ def main():
         theatre.print_matrix(matrix_theatre)
 
         # next customer :
-        num_of_tickets = int(input("Next customer. How many tickets would you like? enter 0 to exit: "))
+
+        num_of_tickets = input("How many tickets would you like? enter 0 to exit: ")
+        # input validation:
+        while not num_of_tickets.isdigit():
+            print("Number of tickets should be a number.\nTry again.")
+            num_of_tickets = input("How many tickets would you like? enter 0 to exit: ")
+        num_of_tickets = int(num_of_tickets)
+
+        if num_of_tickets == 0:
+            quit()
+
         name = input("Enter the invitor name: ")
 
 
