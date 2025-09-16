@@ -49,13 +49,11 @@ def tickets_validation(matrix: list, tickets_list: list, customer: str):
         # checking if the chair is not empty:
         if matrix[ticket[0]][ticket[1]] != "_":
             print("some of the seats are taken.\nTry again.")
-            matrix_copy = copy_matrix(matrix)
             return False
 
         # checking if the tickets are not in the same row:
         if this_row != last_row:
             print("not all tickets are in the same row. \nTry again.")
-            matrix_copy = copy_matrix(matrix)
             return False
 
     first = True
@@ -76,22 +74,18 @@ def tickets_validation(matrix: list, tickets_list: list, customer: str):
             # checking if there are spaces between the tickets:
             if last_col == customer and this_col == "_" and ticket_count != num_of_tickets:
                 print("Not all tickets are linked. \nTry again.")
-                matrix_copy = copy_matrix(matrix)
                 return False
 
             # checking that the tickets are not next to another customer:
             if last_col != customer and last_col != "_" and this_col == customer:
                 print("Tickets dont have space around them. \nTry again.")
-                matrix_copy = copy_matrix(matrix)
                 return False
             elif this_col != customer and this_col != "_" and last_col == customer:
                 print("Tickets dont have space around them. \nTry again.")
-                matrix_copy = copy_matrix(matrix)
                 return False
 
             col_index += 1
 
-    matrix_copy = copy_matrix(matrix)
     return True
 
 
